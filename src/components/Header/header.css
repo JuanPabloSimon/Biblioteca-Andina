@@ -1,0 +1,33 @@
+
+
+header {
+    padding-top: 2.5em ;
+    padding-left: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#seccion_botones {
+    display: flex;
+    gap: 20px;
+}
+
+
+.boton_secciones {
+    height: 35px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid rgba(23, 122, 84, 0.50);
+}
+
+.boton_secciones:hover {
+    cursor: pointer;
+}
+
+.boton_activo {
+    background: rgba(23, 122, 84, 0.50);
+}

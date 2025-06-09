@@ -1,9 +1,12 @@
 import "./App.css";
+import BarraNavegacion from "./components/BarraNavegacion/BarraNavegacion";
+import Main from "./components/Main/Main";
 
 function App() {
   return (
     <>
-      <h1>Hola Mundo</h1>
+      <BarraNavegacion />
+      <Main />
     </>
   );
 }

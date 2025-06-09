@@ -1,0 +1,49 @@
+
+#nav_container {
+    position: fixed;
+    padding-top: 2em;
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#barra {
+    display: flex;
+    height:90%;
+    flex-direction: column;
+    justify-content: end;
+    box-shadow: 1px 2px 15px 0px rgba(0, 0, 0, 0.20);
+}
+
+#main_icon {
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    margin-bottom: 0.8em;
+    gap: 0.5em;
+    height: 10%;
+}
+
+#logOut_section {
+    margin-top: auto;
+    display: flex; 
+    padding-left: 1em;
+    gap: 0.5em;
+    padding-bottom: 2em;
+    align-items: center;
+}
+
+#logOut_section img:hover {
+    cursor: pointer;
+}
+#logOut_section h4:hover {
+    cursor: pointer;
+}
+
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+

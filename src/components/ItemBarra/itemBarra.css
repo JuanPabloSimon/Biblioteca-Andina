@@ -1,0 +1,42 @@
+
+
+.selected {
+    background-color: #CADCD5;
+}
+
+.nav_item {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    gap: 0.5em;
+    padding-left: 1em;
+    transition: all ease-in-out 0.2s;
+}
+
+.item_icon {
+    max-width: 30px;
+    background-color: inherit;
+    transition: all ease-in-out 0.2s;
+
+}
+
+.item_data {
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+    background-color: inherit;
+}
+
+.item_data p {
+    font-size: 13px;
+    background-color: inherit;
+}
+
+.item_data h4 {
+    background-color: inherit;
+}
+
+.nav_item:hover {
+    cursor: pointer;
+    background-color: #e7eeeb;
+}
