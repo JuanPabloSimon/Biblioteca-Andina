@@ -8,7 +8,7 @@ import icono_ayuda from "../../assets/icono_ayuda.svg";
 import icono_personal from "../../assets/icono_personal.svg";
 import icono_logOut from "../../assets/icono_logOut.svg";
 import icono_configuracion from "../../assets/icono_configuracion.svg";
-import icono_catalogo from "../../assets/icono_configuracion.svg";
+import icono_catalogo from "../../assets/icono_catalogo.svg";
 
 const BarraNavegacion = () => {
   return (
