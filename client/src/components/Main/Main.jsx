@@ -10,8 +10,8 @@ const Main = () => {
       <Header />
       <hr id="divisor" />
       <HeaderCatalogo />
-      <EditarLibro />
-      {/* <CardList /> */}
+      {/* <EditarLibro /> */}
+      <CardList />
     </div>
   );
 };
