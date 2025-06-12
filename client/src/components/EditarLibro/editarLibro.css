@@ -47,3 +47,92 @@
 .select {
     padding: 0 12px;
 }
+
+#section_2 {
+    margin-right: 5em;
+    margin-top: 2em;
+}
+
+#section_2_image {
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+#section2_image_container {
+    background-color: white;
+    width: 325px;
+    height: 315px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+#border_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 270px;
+    border: dashed 4px black;
+    border-radius: 20px;
+}
+
+#imagen_edicion {
+    max-width: 150px;
+}
+
+#section_finalizar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "prestamo prestamo"
+        "cancelar guardar";
+    padding: 1em;
+    gap: 0.5em;
+}
+
+.boton_editar {
+    display: flex;
+    width: 168px;
+    height: 40px;
+    padding: 10px 21px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.generar_prestamo {
+    border: none;
+    color: white;
+    background: #177A54 !important;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    grid-area: prestamo;
+    width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.guardar {
+    border: none;
+    color: white;
+    background: var(--Azzurro, #0B6388) !important;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    grid-area: guardar;
+}
+.cancelar {
+    color: #177A54;
+    border: solid #177A54 1px;
+    grid-area: cancelar;
+    text-decoration: none;
+}

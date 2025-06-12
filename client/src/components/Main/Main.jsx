@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import HeaderCatalogo from "../HeaderCatalogo/HeaderCatalogo";
 import CardList from "../CardList/CardList";
 import EditarLibro from "../EditarLibro/EditarLibro";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -10,8 +11,13 @@ const Main = () => {
       <Header />
       <hr id="divisor" />
       <HeaderCatalogo />
-      {/* <EditarLibro /> */}
-      <CardList />
+      <Router>
+        <Routes>
+          <Route path="/" element={<CardList />} />
+          <Route path="/catalogo" element={<CardList />} />
+          <Route path="/editar" element={<EditarLibro />} />
+        </Routes>
+      </Router>
     </div>
   );
 };

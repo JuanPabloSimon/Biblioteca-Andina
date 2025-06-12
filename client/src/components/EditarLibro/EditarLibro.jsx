@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./editarLibro.css";
+import { Link } from "react-router-dom";
 
 const EditarLibro = () => {
   const [prestado, setPrestado] = useState(false);
@@ -55,14 +56,37 @@ const EditarLibro = () => {
         </form>
       </section>
       <section id="section_2">
-        <section>
-          <img src="asdasd" alt="Hola" />
+        <section id="section_2_image">
+          <section id="section2_image_container">
+            <section id="border_image">
+              <img
+                id="imagen_edicion"
+                src="https://covers.openlibrary.org/b/olid/OL8168334M-L.jpg"
+                alt="Hola"
+              />
+            </section>
+          </section>
           <b>Estado</b>
         </section>
         <section id="section_finalizar">
-          <button>Generar prestamo</button>
-          <button>Cancelar</button>
-          <button>Guardar</button>
+          {prestado == "true" ? (
+            <>
+              <button className="boton_editar generar_prestamo">
+                Generar prestamo
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="boton_editar generar_prestamo hidden">
+                Generar prestamo
+              </button>
+            </>
+          )}
+
+          <Link to="/catalogo" className="boton_editar cancelar">
+            Cancelar
+          </Link>
+          <button className="boton_editar guardar">Guardar</button>
         </section>
       </section>
     </div>
