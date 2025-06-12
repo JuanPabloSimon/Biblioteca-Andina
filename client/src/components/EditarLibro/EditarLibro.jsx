@@ -1,9 +1,62 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./editarLibro.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const EditarLibro = () => {
+  const { id } = useParams();
   const [prestado, setPrestado] = useState(false);
+  const [libro, setLibro] = useState({});
+  const [usuarios, setUsuarios] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
+
+  const handleChange = (event) => {
+    const newSearch = event.target.value;
+    if (newSearch.startsWith(" ")) return;
+    setBusqueda(newSearch);
+  };
+
+  useEffect(() => {
+    const buscarUsuarios = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/usuarios/", {
+          method: "GET",
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error("Error en la respuesta");
+        }
+        const result = await response.json();
+
+        setUsuarios(result.filter((el) => el.tipoRol == "lector"));
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+
+    buscarUsuarios();
+  }, [busqueda]);
+
+  useEffect(() => {
+    const buscarLibro = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/libros/${id}`, {
+          method: "GET",
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error("Error en la respuesta");
+        }
+        const result = await response.json();
+        setLibro(result);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+
+    buscarLibro();
+  }, []);
 
   return (
     <div id="editor_container">
@@ -45,10 +98,16 @@ const EditarLibro = () => {
             <>
               <label htmlFor="">Buscar por DNI</label>
               <input
+                onChange={(e) => handleChange(e)}
                 className="form_element"
                 type="text"
                 placeholder="Buscar..."
               />
+              <section id="resultados_dni">
+                {usuarios?.map((el) => {
+                  return <p key={el.idUsuario}>{el.Nombre}</p>;
+                })}
+              </section>
             </>
           ) : (
             <></>
@@ -59,14 +118,10 @@ const EditarLibro = () => {
         <section id="section_2_image">
           <section id="section2_image_container">
             <section id="border_image">
-              <img
-                id="imagen_edicion"
-                src="https://covers.openlibrary.org/b/olid/OL8168334M-L.jpg"
-                alt="Hola"
-              />
+              <img id="imagen_edicion" src={libro.imagen} alt="Hola" />
             </section>
           </section>
-          <b>Estado</b>
+          <b>{libro.disponible ? "Disponible" : "Prestamo"}</b>
         </section>
         <section id="section_finalizar">
           {prestado == "true" ? (

@@ -17,9 +17,6 @@
     background-color: inherit;
 }
 
-/* .card_libro > * > * {
-    background-color: inherit;
-} */
 
 .card_descripcion {
     margin-top: 1em;
@@ -75,6 +72,7 @@
     color: #177A54;
     font-weight: 600;
     transition: all ease 0.2s;
+    text-decoration: none;
 }
 
 .card_boton > * {

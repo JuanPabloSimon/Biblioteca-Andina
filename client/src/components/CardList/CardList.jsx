@@ -34,6 +34,7 @@ const CardList = () => {
         return (
           <CardLibro
             key={el.idLibros}
+            id_libro={el.idLibros}
             imagen={el.imagen}
             titulo={el.Titulo}
             ejemplares={el.ejemplares}
