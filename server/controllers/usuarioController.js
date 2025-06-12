@@ -21,3 +21,23 @@ exports.createUsuario = (req, res) => {
         res.json({ message: 'Usuario creado', result });
     });
 };
+
+exports.update = (req, res) => {
+    const id = req.params.id;
+    const usuario = req.body;
+
+    Usuario.update(id, usuario, (err, result) => {
+        if (err) return res.status(500).json({ error: 'Error al actualizar el usuario' });
+        res.status(200).json({ mensaje: 'Usuario actualizado correctamente' });
+    });
+};
+
+exports.delete = (req, res) => {
+    const id = req.params.id;
+
+    Usuario.delete(id, (err, result) => {
+        if (err) return res.status(500).json({ error: 'Error al eliminar el usuario' });
+        res.status(200).json({ mensaje: 'Usuario eliminado correctamente' });
+    });
+};
+
