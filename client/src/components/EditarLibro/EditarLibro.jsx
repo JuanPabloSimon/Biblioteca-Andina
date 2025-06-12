@@ -27,6 +27,7 @@ const EditarLibro = () => {
           throw new Error("Error en la respuesta");
         }
         const result = await response.json();
+        console.log(result);
 
         setUsuarios(result.filter((el) => el.tipoRol == "lector"));
       } catch (err) {
@@ -105,7 +106,12 @@ const EditarLibro = () => {
               />
               <section id="resultados_dni">
                 {usuarios?.map((el) => {
-                  return <p key={el.idUsuario}>{el.Nombre}</p>;
+                  return (
+                    <div className="item_usuario" key={el.idUsuario}>
+                      <p>{el.Nombre + " " + el.Apellido}</p>
+                      <b>40234253</b>
+                    </div>
+                  );
                 })}
               </section>
             </>
@@ -116,6 +122,7 @@ const EditarLibro = () => {
       </section>
       <section id="section_2">
         <section id="section_2_image">
+          <h1>{libro.Titulo}</h1>
           <section id="section2_image_container">
             <section id="border_image">
               <img id="imagen_edicion" src={libro.imagen} alt="Hola" />
