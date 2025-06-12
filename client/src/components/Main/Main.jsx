@@ -1,14 +1,17 @@
-import React from "react";
 import "./main.css";
 import Header from "../Header/Header";
-import Catalogo from "../Catalogo/Catalogo";
+import HeaderCatalogo from "../HeaderCatalogo/HeaderCatalogo";
+import CardList from "../CardList/CardList";
+import EditarLibro from "../EditarLibro/EditarLibro";
 
 const Main = () => {
   return (
     <div id="main">
       <Header />
       <hr id="divisor" />
-      <Catalogo />
+      <HeaderCatalogo />
+      <EditarLibro />
+      {/* <CardList /> */}
     </div>
   );
 };

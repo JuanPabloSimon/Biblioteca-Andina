@@ -1,3 +1,7 @@
 #list_contenedor {
     padding-left: 3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(200px, 1fr));
+    gap: 30px;
+    width: 90%;
 }
