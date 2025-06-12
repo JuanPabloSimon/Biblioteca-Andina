@@ -22,7 +22,7 @@ exports.createUsuario = (req, res) => {
     });
 };
 
-exports.update = (req, res) => {
+exports.updateUsuario = (req, res) => {
     const id = req.params.id;
     const usuario = req.body;
 
@@ -32,7 +32,7 @@ exports.update = (req, res) => {
     });
 };
 
-exports.delete = (req, res) => {
+exports.deleteUsuario = (req, res) => {
     const id = req.params.id;
 
     Usuario.delete(id, (err, result) => {
@@ -41,3 +41,13 @@ exports.delete = (req, res) => {
     });
 };
 
+exports.getLectores = (req, res) => {
+    Usuario.getLectores((err, results) => {
+        if (err) {
+            console.error('Error al obtener lectores:', err);
+            res.status(500).json({ error: 'Error al obtener lectores' });
+        } else {
+            res.json(results);
+        }
+    });
+};
