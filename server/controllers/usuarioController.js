@@ -51,3 +51,19 @@ exports.getLectores = (req, res) => {
         }
     });
 };
+
+exports.getUsuarioByFilters = (req, res) => {
+    const filters = {
+        rol: req.query.rol,
+        dni: req.query.dni
+    };
+
+    Usuario.getByFilters(filters, (err, results) => {
+        if (err) {
+            console.error('Error al obtener usuarios con filtros:', err);
+            res.status(500).json({ error: 'Error al obtener usuarios con filtros' });
+        } else {
+            res.json(results);
+        }
+    });
+};

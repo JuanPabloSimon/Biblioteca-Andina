@@ -70,8 +70,32 @@ const Usuario = {
     WHERE r.tipoRol = 'Lector'
     `;
         db.query(sql, callback);
-    }
+    },
 
+    getByFilters: (filters, callback) => {
+        let sql = `
+        SELECT u.idUsuario, u.Nombre, u.Apellido, u.fechaNac, u.DNI,
+               d.calle, d.numeracion, t.numero, r.tipoRol
+        FROM Usuario u
+        JOIN Direccion d ON u.Direccion_idDireccion = d.idDireccion
+        JOIN Telefono t ON u.Telefono_idTelefono = t.idTelefono
+        JOIN Rol r ON u.Rol_idRol = r.idRol
+        WHERE 1 = 1
+    `;
+        const params = [];
+
+        if (filters.rol) {
+            sql += ` AND r.tipoRol = ?`;
+            params.push(filters.rol);
+        }
+
+        if (filters.dni) {
+            sql += ` AND u.DNI = ?`;
+            params.push(filters.dni);
+        }
+
+        db.query(sql, params, callback);
+    },
 };
 
 module.exports = Usuario;
