@@ -1,0 +1,202 @@
+[
+  {
+    "idLibros": 1,
+    "Titulo": "Cien Años de Soledad",
+    "fechaPublicacion": "1967-05-30",
+    "genero": "Realismo Mágico",
+    "editorial": "Sudamericana",
+    "disponible": true,
+    "ejemplares": 4,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL8168334M-L.jpg"
+  },
+  {
+    "idLibros": 2,
+    "Titulo": "1984",
+    "fechaPublicacion": "1949-06-08",
+    "genero": "Ciencia Ficción",
+    "editorial": "Secker & Warburg",
+    "disponible": false,
+    "ejemplares": 2,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL7343617M-L.jpg"
+  },
+  {
+    "idLibros": 3,
+    "Titulo": "Don Quijote de la Mancha",
+    "fechaPublicacion": "1605-01-16",
+    "genero": "Novela",
+    "editorial": "Francisco de Robles",
+    "disponible": true,
+    "ejemplares": 6,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL15313618M-L.jpg"
+  },
+  {
+    "idLibros": 4,
+    "Titulo": "El Señor de los Anillos",
+    "fechaPublicacion": "1954-07-29",
+    "genero": "Fantasía",
+    "editorial": "Allen & Unwin",
+    "disponible": false,
+    "ejemplares": 3,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL26275827M-L.jpg"
+  },
+  {
+    "idLibros": 5,
+    "Titulo": "Harry Potter y la piedra filosofal",
+    "fechaPublicacion": "1997-06-26",
+    "genero": "Fantasía",
+    "editorial": "Bloomsbury",
+    "disponible": true,
+    "ejemplares": 8,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL26331930M-L.jpg"
+  },
+  {
+    "idLibros": 6,
+    "Titulo": "Fahrenheit 451",
+    "fechaPublicacion": "1953-10-19",
+    "genero": "Ciencia Ficción",
+    "editorial": "Ballantine Books",
+    "disponible": true,
+    "ejemplares": 5,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL7361457M-L.jpg"
+  },
+  {
+    "idLibros": 7,
+    "Titulo": "Crónica de una muerte anunciada",
+    "fechaPublicacion": "1981-03-01",
+    "genero": "Realismo Mágico",
+    "editorial": "Sudamericana",
+    "disponible": false,
+    "ejemplares": 2,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL15365506M-L.jpg"
+  },
+  {
+    "idLibros": 8,
+    "Titulo": "El Código Da Vinci",
+    "fechaPublicacion": "2003-03-18",
+    "genero": "Thriller",
+    "editorial": "Doubleday",
+    "disponible": true,
+    "ejemplares": 7,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL23277145M-L.jpg"
+  },
+  {
+    "idLibros": 9,
+    "Titulo": "La sombra del viento",
+    "fechaPublicacion": "2001-06-06",
+    "genero": "Misterio",
+    "editorial": "Planeta",
+    "disponible": true,
+    "ejemplares": 4,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL16275290M-L.jpg"
+  },
+  {
+    "idLibros": 10,
+    "Titulo": "El Alquimista",
+    "fechaPublicacion": "1988-04-15",
+    "genero": "Ficción Filosófica",
+    "editorial": "HarperTorch",
+    "disponible": false,
+    "ejemplares": 3,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL24206772M-L.jpg"
+  },
+  {
+    "idLibros": 11,
+    "Titulo": "Los Juegos del Hambre",
+    "fechaPublicacion": "2008-09-14",
+    "genero": "Distopía",
+    "editorial": "Scholastic",
+    "disponible": true,
+    "ejemplares": 6,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL24274629M-L.jpg"
+  },
+  {
+    "idLibros": 12,
+    "Titulo": "Orgullo y Prejuicio",
+    "fechaPublicacion": "1813-01-28",
+    "genero": "Romántica",
+    "editorial": "T. Egerton",
+    "disponible": false,
+    "ejemplares": 2,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL25420551M-L.jpg"
+  },
+  {
+    "idLibros": 13,
+    "Titulo": "Drácula",
+    "fechaPublicacion": "1897-05-26",
+    "genero": "Terror",
+    "editorial": "Archibald Constable",
+    "disponible": true,
+    "ejemplares": 4,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL27264291M-L.jpg"
+  },
+  {
+    "idLibros": 14,
+    "Titulo": "Matar a un ruiseñor",
+    "fechaPublicacion": "1960-07-11",
+    "genero": "Drama Social",
+    "editorial": "J. B. Lippincott & Co.",
+    "disponible": true,
+    "ejemplares": 5,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL24761778M-L.jpg"
+  },
+  {
+    "idLibros": 15,
+    "Titulo": "Frankenstein",
+    "fechaPublicacion": "1818-01-01",
+    "genero": "Terror",
+    "editorial": "Lackington & Co.",
+    "disponible": true,
+    "ejemplares": 3,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL22853154M-L.jpg"
+  },
+  {
+    "idLibros": 16,
+    "Titulo": "Rayuela",
+    "fechaPublicacion": "1963-06-28",
+    "genero": "Experimental",
+    "editorial": "Sudamericana",
+    "disponible": false,
+    "ejemplares": 4,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL26484728M-L.jpg"
+  },
+  {
+    "idLibros": 17,
+    "Titulo": "La ladrona de libros",
+    "fechaPublicacion": "2005-03-14",
+    "genero": "Drama Histórico",
+    "editorial": "Picador",
+    "disponible": true,
+    "ejemplares": 6,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL26403287M-L.jpg"
+  },
+  {
+    "idLibros": 18,
+    "Titulo": "It",
+    "fechaPublicacion": "1986-09-15",
+    "genero": "Terror",
+    "editorial": "Viking",
+    "disponible": true,
+    "ejemplares": 3,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL24382495M-L.jpg"
+  },
+  {
+    "idLibros": 19,
+    "Titulo": "El Principito",
+    "fechaPublicacion": "1943-04-06",
+    "genero": "Fábula",
+    "editorial": "Reynal & Hitchcock",
+    "disponible": true,
+    "ejemplares": 7,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL24790907M-L.jpg"
+  },
+  {
+    "idLibros": 20,
+    "Titulo": "Las Aventuras de Sherlock Holmes",
+    "fechaPublicacion": "1892-10-14",
+    "genero": "Misterio",
+    "editorial": "George Newnes",
+    "disponible": false,
+    "ejemplares": 3,
+    "imagen": "https://covers.openlibrary.org/b/olid/OL26284186M-L.jpg"
+  }
+]
