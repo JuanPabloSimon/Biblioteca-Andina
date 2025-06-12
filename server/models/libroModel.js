@@ -11,10 +11,11 @@ const Libro = {
         db.query(sql, [id], callback);
     },
 
+    // create
     create: (libro, callback) => {
         const sql = `
-    INSERT INTO Libro (idLibros, Titulo, fechaPublicacion, genero_idgenero, editorial, disponible, Editorial_idEditorial)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO Libro (idLibros, Titulo, fechaPublicacion, genero_idgenero, editorial, disponible, Editorial_idEditorial, imagen)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
         const params = [
             libro.idLibros,
@@ -23,14 +24,16 @@ const Libro = {
             libro.genero_idgenero,
             libro.editorial,
             libro.disponible,
-            libro.Editorial_idEditorial
+            libro.Editorial_idEditorial,
+            libro.imagen
         ];
         db.query(sql, params, callback);
     },
 
+    // update
     update: (id, libro, callback) => {
         const sql = `
-    UPDATE Libro SET Titulo = ?, fechaPublicacion = ?, genero_idgenero = ?, editorial = ?, disponible = ?, Editorial_idEditorial = ?
+    UPDATE Libro SET Titulo = ?, fechaPublicacion = ?, genero_idgenero = ?, editorial = ?, disponible = ?, Editorial_idEditorial = ?, imagen = ?
     WHERE idLibros = ?
     `;
         const params = [
@@ -40,6 +43,7 @@ const Libro = {
             libro.editorial,
             libro.disponible,
             libro.Editorial_idEditorial,
+            libro.imagen,
             id
         ];
         db.query(sql, params, callback);
