@@ -4,6 +4,9 @@ const cors = require("cors");
 
 app.use(cors());
 
+const initRoles = require('./seeders/initRoles');
+initRoles(); // Ejecuta la carga inicial de roles
+
 const usuarioRoutes = require("./routes/usuarioRoutes");
 const libroRoutes = require("./routes/libroRoutes");
 const autorRoutes = require("./routes/autorRoutes");
