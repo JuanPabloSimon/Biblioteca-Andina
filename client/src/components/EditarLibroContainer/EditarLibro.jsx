@@ -6,7 +6,7 @@ const EditarLibro = () => {
   const { id } = useParams();
   const [prestado, setPrestado] = useState(false);
   const [libro, setLibro] = useState({});
-  const [usuarios, setUsuarios] = useState([]);
+  const [usuario, setUsuario] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
   const handleChange = (event) => {
@@ -15,28 +15,81 @@ const EditarLibro = () => {
     setBusqueda(newSearch);
   };
 
-  useEffect(() => {
-    const buscarUsuarios = async () => {
+  const obtenerFechaFutura = () => {
+    let fechaActual = new Date();
+    fechaActual.setMonth(fechaActual.getMonth() + 1);
+
+    // Formatear la fecha en "YYYY-MM-DD"
+    let year = fechaActual.getFullYear();
+    let month = String(fechaActual.getMonth() + 1).padStart(2, "0"); // Asegura dos dígitos
+    let day = String(fechaActual.getDate()).padStart(2, "0"); // Asegura dos dígitos
+
+    return `${year}-${month}-${day}`;
+  };
+
+  const obtenerFechaActual = () => {
+    let fechaActual = new Date();
+
+    let year = fechaActual.getFullYear();
+    let month = String(fechaActual.getMonth() + 1).padStart(2, "0"); // Asegura dos dígitos
+    let day = String(fechaActual.getDate()).padStart(2, "0"); // Asegura dos dígitos
+    return `${year}-${month}-${day}`;
+  };
+
+  const busquedaDni = async () => {
+    if (busqueda.trim() != "")
       try {
-        const response = await fetch("http://localhost:3000/api/usuarios/", {
-          method: "GET",
-          mode: "cors",
-          headers: { "Content-Type": "application/json" },
-        });
+        const response = await fetch(
+          `http://localhost:3000/api/usuarios/buscar?dni=${busqueda}`,
+          {
+            method: "GET",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
         if (!response.ok) {
           throw new Error("Error en la respuesta");
         }
         const result = await response.json();
         console.log(result);
 
-        setUsuarios(result.filter((el) => el.tipoRol == "lector"));
+        setUsuario(result);
       } catch (err) {
         console.log(err.message);
       }
-    };
+  };
 
-    buscarUsuarios();
-  }, [busqueda]);
+  const cargaPrestamo = async () => {
+    if (usuario.length == 0) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/prestamos`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          Usuario_idUsuario: usuario[0].idUsuario,
+          Libro_idLibros: libro.idLibros,
+          fechaPrestamo: obtenerFechaActual(),
+          fechaDevolucion: obtenerFechaFutura(),
+          estado: "En Curso",
+        }),
+      });
+      if (!response.ok) {
+        throw new Error("Error en la respuesta");
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const handleKey = (e) => {
+    if (e.key == "Enter") {
+      e.preventDefault();
+      busquedaDni();
+    }
+  };
 
   useEffect(() => {
     const buscarLibro = async () => {
@@ -97,19 +150,22 @@ const EditarLibro = () => {
               <label htmlFor="">Buscar por DNI</label>
               <input
                 onChange={(e) => handleChange(e)}
+                onKeyDown={handleKey}
                 className="form_element"
                 type="text"
                 placeholder="Buscar..."
               />
               <section id="resultados_dni">
-                {usuarios?.map((el) => {
-                  return (
-                    <div className="item_usuario" key={el.idUsuario}>
-                      <p>{el.Nombre + " " + el.Apellido}</p>
-                      <b>40234253</b>
-                    </div>
-                  );
-                })}
+                {usuario.length != 0 ? (
+                  <div className="item_usuario">
+                    <p>{usuario[0].Nombre + " " + usuario[0].Apellido}</p>
+                    <b>{usuario[0].DNI}</b>
+                  </div>
+                ) : (
+                  <div className="item_usuario">
+                    <p>No Se Encontraron Usuarios</p>
+                  </div>
+                )}
               </section>
             </>
           ) : (
@@ -130,7 +186,10 @@ const EditarLibro = () => {
         <section id="section_finalizar">
           {prestado == "true" ? (
             <>
-              <button className="boton_editar generar_prestamo">
+              <button
+                onClick={cargaPrestamo}
+                className="boton_editar generar_prestamo"
+              >
                 Generar prestamo
               </button>
             </>
