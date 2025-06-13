@@ -8,6 +8,7 @@ const EditarLibro = () => {
   const [libro, setLibro] = useState({});
   const [usuario, setUsuario] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [disponible, setDisponible] = useState(true);
 
   const handleChange = (event) => {
     const newSearch = event.target.value;
@@ -80,6 +81,7 @@ const EditarLibro = () => {
         throw new Error("Error en la respuesta");
       }
       alert("Prestamo generado de forma exitosa");
+      setDisponible(false);
     } catch (err) {
       console.log(err.message);
     }
@@ -182,7 +184,7 @@ const EditarLibro = () => {
               <img id="imagen_edicion" src={libro.imagen} alt="Hola" />
             </section>
           </section>
-          <b>{libro.disponible ? "Disponible" : "Prestamo"}</b>
+          <b>{disponible ? "Disponible" : "Prestamo"}</b>
         </section>
         <section id="section_finalizar">
           {prestado == "true" ? (
