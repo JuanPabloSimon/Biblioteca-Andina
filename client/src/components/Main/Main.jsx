@@ -8,10 +8,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const Main = () => {
   return (
     <div id="main">
-      <Header />
-      <hr id="divisor" />
-      <HeaderCatalogo />
       <Router>
+        <Header />
+        <hr id="divisor" />
+        <HeaderCatalogo />
         <Routes>
           <Route path="/" element={<CardList />} />
           <Route path="/catalogo" element={<CardList />} />

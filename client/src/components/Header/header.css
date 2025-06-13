@@ -22,6 +22,8 @@ header {
     align-items: center;
     border-radius: 20px;
     border: 1px solid rgba(23, 122, 84, 0.50);
+    text-decoration: none;
+    color: black;
 }
 
 .boton_secciones:hover {
