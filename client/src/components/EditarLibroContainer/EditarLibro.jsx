@@ -79,6 +79,7 @@ const EditarLibro = () => {
       if (!response.ok) {
         throw new Error("Error en la respuesta");
       }
+      alert("Prestamo generado de forma exitosa");
     } catch (err) {
       console.log(err.message);
     }
