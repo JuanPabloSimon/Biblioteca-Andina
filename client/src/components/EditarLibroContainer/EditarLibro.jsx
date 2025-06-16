@@ -1,41 +1,20 @@
 import { useEffect, useState } from "react";
 import "./editarLibro.css";
 import { Link, useParams } from "react-router-dom";
+import {
+  obtenerFechaActual,
+  obtenerFechaFutura,
+} from "../../utils/funcionesFecha";
 
 const EditarLibro = () => {
   const { id } = useParams();
-  const [prestado, setPrestado] = useState(false);
   const [libro, setLibro] = useState({});
   const [usuario, setUsuario] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [prestado, setPrestado] = useState(false);
   const [disponible, setDisponible] = useState(true);
 
-  const handleChange = (event) => {
-    const newSearch = event.target.value;
-    if (newSearch.startsWith(" ")) return;
-    setBusqueda(newSearch);
-  };
-
-  const obtenerFechaFutura = () => {
-    let fechaActual = new Date();
-    fechaActual.setMonth(fechaActual.getMonth() + 1);
-
-    // Formatear la fecha en "YYYY-MM-DD"
-    let year = fechaActual.getFullYear();
-    let month = String(fechaActual.getMonth() + 1).padStart(2, "0"); // Asegura dos dígitos
-    let day = String(fechaActual.getDate()).padStart(2, "0"); // Asegura dos dígitos
-
-    return `${year}-${month}-${day}`;
-  };
-
-  const obtenerFechaActual = () => {
-    let fechaActual = new Date();
-
-    let year = fechaActual.getFullYear();
-    let month = String(fechaActual.getMonth() + 1).padStart(2, "0"); // Asegura dos dígitos
-    let day = String(fechaActual.getDate()).padStart(2, "0"); // Asegura dos dígitos
-    return `${year}-${month}-${day}`;
-  };
+  // API calls
 
   const busquedaDni = async () => {
     if (busqueda.trim() != "")
@@ -87,11 +66,19 @@ const EditarLibro = () => {
     }
   };
 
+  // Handlers
+
   const handleKey = (e) => {
     if (e.key == "Enter") {
       e.preventDefault();
       busquedaDni();
     }
+  };
+
+  const handleChange = (event) => {
+    const newSearch = event.target.value;
+    if (newSearch.startsWith(" ")) return;
+    setBusqueda(newSearch);
   };
 
   useEffect(() => {

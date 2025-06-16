@@ -1,6 +1,7 @@
 import CardLibro from "../CardLibro/CardLibro";
 import "./cardList.css";
 
+import add_item from "../../assets/icono_mas.svg";
 import { useEffect, useState } from "react";
 
 const CardList = () => {
@@ -23,13 +24,16 @@ const CardList = () => {
         console.log(err.message);
       }
     };
-
     fetchData();
   }, []);
 
   return (
     <div id="list_contenedor">
       {/* Agregar boton para añadir libros acá */}
+      <div id="agregar_libro_container">
+        <img src={add_item} alt="" />
+        <p>Agregar nuevo ejemplar</p>
+      </div>
       {datos.map((el) => {
         return (
           <CardLibro
