@@ -1,6 +1,6 @@
 import React from "react";
 import "./barraNavegacion.css";
-import ItemBarra from "../ItemBarra/ItemBarra";
+import ItemBarra from "./ItemBarra/ItemBarra";
 
 // Iconos
 import icono_biblio from "../../assets/icono_biblioteca.svg";

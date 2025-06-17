@@ -1,8 +1,8 @@
 import CardLibro from "../CardLibro/CardLibro";
 import "./cardList.css";
 
-import add_item from "../../assets/icono_mas.svg";
 import { useEffect, useState } from "react";
+import AgregarLibroCard from "../AgregarLibro/AgregarLibroCard";
 
 const CardList = () => {
   const [datos, setDatos] = useState([]);
@@ -30,10 +30,7 @@ const CardList = () => {
   return (
     <div id="list_contenedor">
       {/* Agregar boton para añadir libros acá */}
-      <div id="agregar_libro_container">
-        <img src={add_item} alt="" />
-        <p>Agregar nuevo ejemplar</p>
-      </div>
+      <AgregarLibroCard />
       {datos.map((el) => {
         return (
           <CardLibro

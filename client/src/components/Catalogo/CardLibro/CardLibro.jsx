@@ -1,6 +1,6 @@
 import React from "react";
 import "./cardLibro.css";
-import icono_editar from "../../assets/icono_editar.svg";
+import icono_editar from "../../../assets/icono_editar.svg";
 import { Link } from "react-router-dom";
 
 const CardLibro = ({ id_libro, imagen, titulo, ejemplares, editorial }) => {

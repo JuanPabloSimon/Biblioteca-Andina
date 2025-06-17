@@ -1,7 +1,7 @@
 import React from "react";
 import "./headerCatalogo.css";
 
-import icono_mas from "../../assets/icono_mas.svg";
+import icono_mas from "../../../assets/icono_mas.svg";
 
 const HeaderCatalogo = () => {
   return (

@@ -1,7 +1,7 @@
 import "./main.css";
 import Header from "../Header/Header";
-import HeaderCatalogo from "../HeaderCatalogo/HeaderCatalogo";
-import CardList from "../CardList/CardList";
+import HeaderCatalogo from "../Catalogo/HeaderCatalogo/HeaderCatalogo";
+import CardList from "../Catalogo/CardList/CardList";
 import EditarLibro from "../EditarLibroContainer/EditarLibro";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 

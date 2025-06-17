@@ -81,4 +81,5 @@
 .card_boton:hover {
     cursor: pointer;
     background-color: #8ebead;
+    color: white;
 }
