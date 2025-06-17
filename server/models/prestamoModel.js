@@ -2,18 +2,18 @@ const db = require("../config/db");
 
 const Prestamo = {
   getAll: (callback) => {
-    const sql = `SELECT * FROM Prestamo`;
+    const sql = `SELECT * FROM prestamo`;
     db.query(sql, callback);
   },
 
   getById: (id, callback) => {
-    const sql = `SELECT * FROM Prestamo WHERE idPrestamo = ?`;
+    const sql = `SELECT * FROM prestamo WHERE idPrestamo = ?`;
     db.query(sql, [id], callback);
   },
 
   create: (prestamo, callback) => {
     const sql = `
-            INSERT INTO Prestamo (Usuario_idUsuario, Libro_idLibros, fechaPrestamo, fechaDevolucion, estado)
+            INSERT INTO prestamo (Usuario_idUsuario, Libro_idLibros, fechaPrestamo, fechaDevolucion, estado)
             VALUES (?, ?, ?, ?, ?)
         `;
     db.query(
@@ -31,7 +31,7 @@ const Prestamo = {
 
   update: (id, prestamo, callback) => {
     const sql = `
-            UPDATE Prestamo
+            UPDATE prestamo
             SET fechaPrestamo = ?, fechaDevolucion = ?, estado = ?
             WHERE idPrestamo = ?
         `;
@@ -43,7 +43,7 @@ const Prestamo = {
   },
 
   delete: (id, callback) => {
-    const sql = `DELETE FROM Prestamo WHERE idPrestamo = ?`;
+    const sql = `DELETE FROM prestamo WHERE idPrestamo = ?`;
     db.query(sql, [id], callback);
   },
 };

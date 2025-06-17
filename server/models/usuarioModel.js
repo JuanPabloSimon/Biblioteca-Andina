@@ -3,12 +3,10 @@ const db = require("../config/db");
 const Usuario = {
   getAll: (callback) => {
     const sql = `
-        SELECT u.idUsuario, u.DNI, u.Nombre, u.Apellido, u.fechaNac, u.DNI,
-               d.calle, d.numeracion, t.numero, r.tipoRol
+        SELECT u.idUsuario, u.DNI, u.Nombre, u.Apellido, u.fechaNac, u.DNI, u.Telefono, u.Rol,
+               d.calle, d.numeracion
         FROM Usuario u
-        JOIN Direccion d ON u.Direccion_idDireccion = d.idDireccion
-        JOIN Telefono t ON u.Telefono_idTelefono = t.idTelefono
-        JOIN Rol r ON u.Rol_idRol = r.idRol;
+        JOIN Direccion d ON u.Direccion_idDireccion = d.idDireccion;
         `;
     db.query(sql, callback);
   },
@@ -21,20 +19,19 @@ const Usuario = {
   create: (usuario, callback) => {
     const sql = `
         INSERT INTO Usuario 
-        (idUsuario, Nombre, Apellido, fechaNac, DNI, Direccion_idDireccion, Telefono_idTelefono, Rol_idRol) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        (Nombre, Apellido, fechaNac, DNI, Direccion_idDireccion, Telefono, Rol) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)
         `;
     db.query(
       sql,
       [
-        usuario.idUsuario,
         usuario.Nombre,
         usuario.Apellido,
         usuario.fechaNac,
         usuario.DNI,
         usuario.Direccion_idDireccion,
-        usuario.Telefono_idTelefono,
-        usuario.Rol_idRol,
+        usuario.Telefono,
+        usuario.Rol,
       ],
       callback
     );
@@ -44,7 +41,7 @@ const Usuario = {
     const sql = `
         UPDATE Usuario 
         SET Nombre = ?, Apellido = ?, fechaNac = ?, DNI = ?, 
-            Direccion_idDireccion = ?, Telefono_idTelefono = ?, Rol_idRol = ?
+            Direccion_idDireccion = ?, Telefono = ?, Rol = ?
         WHERE idUsuario = ?
         `;
     db.query(
@@ -55,8 +52,8 @@ const Usuario = {
         usuario.fechaNac,
         usuario.DNI,
         usuario.Direccion_idDireccion,
-        usuario.Telefono_idTelefono,
-        usuario.Rol_idRol,
+        usuario.Telefono,
+        usuario.Rol,
         id,
       ],
       callback
@@ -67,15 +64,14 @@ const Usuario = {
     const sql = "DELETE FROM Usuario WHERE idUsuario = ?";
     db.query(sql, [id], callback);
   },
+
+  // CHEKEAR ESTOOOOOOO
   getLectores: (callback) => {
     const sql = `
-    SELECT u.idUsuario, u.Nombre, u.Apellido, u.fechaNac, u.DNI,
-           d.calle, d.numeracion, t.numero, r.tipoRol
-    FROM Usuario u
+    SELECT u.idUsuario, u.DNI, u.Nombre, u.Apellido, u.fechaNac, u.DNI, u.Telefono, u.Rol
+               d.calle, d.numeracion,
+    FROM Usuario u WHERE u.Rol = 'Lector'
     JOIN Direccion d ON u.Direccion_idDireccion = d.idDireccion
-    JOIN Telefono t ON u.Telefono_idTelefono = t.idTelefono
-    JOIN Rol r ON u.Rol_idRol = r.idRol
-    WHERE r.tipoRol = 'Lector'
     `;
     db.query(sql, callback);
   },
