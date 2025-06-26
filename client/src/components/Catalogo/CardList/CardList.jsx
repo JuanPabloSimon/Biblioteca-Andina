@@ -2,7 +2,7 @@ import CardLibro from "../CardLibro/CardLibro";
 import "./cardList.css";
 
 import { useEffect, useState } from "react";
-import AgregarLibroCard from "../AgregarLibro/AgregarLibroCard";
+import AgregarLibroCard from "../AgregarLibro/AgregarLibroCard/AgregarLibroCard";
 
 const CardList = () => {
   const [datos, setDatos] = useState([]);
@@ -31,7 +31,7 @@ const CardList = () => {
     <div id="list_contenedor">
       {/* Agregar boton para añadir libros acá */}
       <AgregarLibroCard />
-      {datos.map((el) => {
+      {datos?.map((el) => {
         return (
           <CardLibro
             key={el.idLibros}

@@ -4,6 +4,7 @@ import HeaderCatalogo from "../Catalogo/HeaderCatalogo/HeaderCatalogo";
 import CardList from "../Catalogo/CardList/CardList";
 import EditarLibro from "../EditarLibroContainer/EditarLibro";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AgregarLibroPage from "../Catalogo/AgregarLibro/AgregarLibroPage/AgregarLiroPage";
 
 const Main = () => {
   return (
@@ -16,6 +17,7 @@ const Main = () => {
           <Route path="/" element={<CardList />} />
           <Route path="/catalogo" element={<CardList />} />
           <Route path="/editar/:id" element={<EditarLibro />} />
+          <Route path="/agregar_libro" element={<AgregarLibroPage />} />
         </Routes>
       </Router>
     </div>

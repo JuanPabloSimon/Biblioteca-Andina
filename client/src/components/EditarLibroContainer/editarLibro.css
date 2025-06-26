@@ -27,10 +27,6 @@
     flex-direction: column;
 }
 
-#section_1 > form {
-    display: flex;
-    flex-direction: column;
-}
 
 .form_element {
     display: flex;  

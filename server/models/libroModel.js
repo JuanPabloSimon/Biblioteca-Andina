@@ -14,13 +14,14 @@ const Libro = {
   // create
   create: (libro, callback) => {
     const sql = `
-    INSERT INTO libro (Titulo, fechaPublicacion, genero_idgenero, disponible, Editorial_idEditorial, imagen)
+    INSERT INTO libro (Titulo, fechaPublicacion, genero_idgenero, ejemplares, disponible, Editorial_idEditorial, imagen)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
     const params = [
       libro.Titulo,
       libro.fechaPublicacion,
       libro.genero_idgenero,
+      libro.ejemplares,
       libro.disponible,
       libro.Editorial_idEditorial,
       libro.imagen,

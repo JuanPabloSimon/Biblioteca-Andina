@@ -1,0 +1,10 @@
+#form_agregar_Libros {
+    display: flex; 
+    gap: 1em;
+}
+
+#section_guardar {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
